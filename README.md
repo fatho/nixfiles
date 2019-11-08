@@ -19,3 +19,13 @@ let
 in
     ...
 ```
+
+From other places, the overlay is best accessed via GitHub:
+
+```nix
+let
+    homepkgs = import (fetchTarball https://github.com/fatho/nixfiles/archive/master.tar.gz + "/homepkgs");
+    pkgs = import <nixpkgs> { overlays = [homepkgs]; };
+in
+    ...
+```

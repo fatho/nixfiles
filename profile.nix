@@ -13,6 +13,7 @@ in
         nix-prefetch-hg
         nix-prefetch-git
         fatho.nix-locale
+        cachix
 
         # Git
         gitAndTools.git-annex
@@ -22,7 +23,7 @@ in
         flamegraph
         fatho.perf-flame
 
-        # Haskell tools
+        # Haskell
         haskellPackages.cabal-install
         haskellPackages.stack
         haskellPackages.ghcid
@@ -30,4 +31,7 @@ in
         haskellPackages.apply-refact
         haskellPackages.profiteur
         haskellPackages.stylish-haskell
+
+        # Rust
+        carnix
     ]

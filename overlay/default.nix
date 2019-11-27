@@ -8,6 +8,7 @@ let
     fatho = {
         nix-locale = self.callPackage (import ./nix-locale.nix) {};
         perf-flame = self.callPackage (import ./perf-flame.nix) {};
+        buildZshConfig = self.callPackage (import ./buildZshConfig.nix) {};
     };
 in
     {

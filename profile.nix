@@ -4,8 +4,9 @@
 #
 
 let
-    homepkgs = import ./homepkgs;
-    pkgs = import <nixpkgs> { overlays = [homepkgs]; };
+    fatho-overlay = import ./overlay;
+    pkgs = import <nixpkgs> { overlays = [fatho-overlay]; };
+    zsh-config = import ./zsh-config.nix pkgs;
 in
     with pkgs; [
         # Nix
@@ -14,6 +15,11 @@ in
         nix-prefetch-git
         fatho.nix-locale
         cachix
+
+        # Shell
+        autojump
+        thefuck
+        zsh-config
 
         # Git
         gitAndTools.git-annex
@@ -24,8 +30,6 @@ in
         fatho.perf-flame
 
         # Haskell
-        haskellPackages.cabal-install
-        haskellPackages.stack
         haskellPackages.ghcid
         haskellPackages.hlint
         haskellPackages.apply-refact

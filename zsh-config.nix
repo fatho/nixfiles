@@ -54,6 +54,7 @@ pkgs.fatho.buildZshConfig {
         "screenshot" = "import png:- | xclip -selection clipboard -t image/png";
         "ls" = "ls --color=tty";
         "la" = "ls -lAh";
+        "nix-venv" = "nix run -c $SHELL";
     };
     custom = ''
         # Dynamically generated aliases
@@ -75,9 +76,10 @@ pkgs.fatho.buildZshConfig {
         # Bind Ctrl+Left/Right
         bindkey "^[[1;5C" forward-word
         bindkey "^[[1;5D" backward-word
-        # Bind home/end
+        # Bind home/end/delete
         bindkey  "^[[H"   beginning-of-line
         bindkey  "^[[F"   end-of-line
+        bindkey  "^[[3~"  delete-char
 
         # Prompt
         PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
